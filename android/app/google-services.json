@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "834593427372",
+    "project_id": "playshorts-89ba1",
+    "storage_bucket": "playshorts-89ba1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834593427372:android:235cdcc2eaf85130953409",
+        "android_client_info": {
+          "package_name": "com.top5aplicativos.playshorts"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgsWBk9M2wL2It6z_DsW7KRYjikWI9nT4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
