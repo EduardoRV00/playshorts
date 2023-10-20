@@ -119,8 +119,6 @@ class _HomeVideosPageWidgetState extends State<HomeVideosPageWidget> {
                                         );
                                       },
                                       child: Container(
-                                        width: 100,
-                                        height: 50,
                                         decoration: BoxDecoration(
                                           color: Color(0x00FFFFFF),
                                           border: Border.all(
@@ -385,7 +383,7 @@ class _HomeVideosPageWidgetState extends State<HomeVideosPageWidget> {
                                         final storage = FirebaseStorage.instance.ref(fileName);
 
                                         ///chamada do metodo para salvar arquivo
-                                        final data = await videoRef.getData();
+                                        final data = await storage.getData(838860800);
                                         print(data);
                                         FileUtils.saveFile(data: data!, filename: 'video',);
                                       },
