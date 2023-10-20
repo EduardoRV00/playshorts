@@ -204,7 +204,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           ],
                                           obscureText: false,
                                           decoration: InputDecoration(
-                                            labelText: 'Email',
+                                            // labelText: 'Email',
+                                            hintText: 'Email',
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelLarge
@@ -226,7 +227,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                color: Color(0xFF4B39EF),
+                                                color: Color(0xFFEEB500),
                                                 width: 2.0,
                                               ),
                                               borderRadius:
@@ -234,7 +235,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             ),
                                             errorBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                color: Color(0xFFE0E3E7),
+                                                color: Colors.black,
                                                 width: 2.0,
                                               ),
                                               borderRadius:
@@ -243,7 +244,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                color: Color(0xFFE0E3E7),
+                                                color: Colors.black,
                                                 width: 2.0,
                                               ),
                                               borderRadius:
@@ -287,7 +288,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                           obscureText:
                                               !_model.passwordVisibility,
                                           decoration: InputDecoration(
-                                            labelText: 'Password',
+                                            // labelText: 'Password',
+                                            hintText: 'Senha',
                                             labelStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelLarge
@@ -309,7 +311,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                color: Color(0xFF4B39EF),
+                                                color: Color(0xFFEEB500),
                                                 width: 2.0,
                                               ),
                                               borderRadius:
@@ -317,7 +319,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             ),
                                             errorBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                color: Color(0xFFE0E3E7),
+                                                color: Colors.black,
                                                 width: 2.0,
                                               ),
                                               borderRadius:
@@ -326,7 +328,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             focusedErrorBorder:
                                                 OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                color: Color(0xFFE0E3E7),
+                                                color: Colors.black,
                                                 width: 2.0,
                                               ),
                                               borderRadius:
@@ -388,7 +390,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                               'HomeVideosPage',
                                               context.mounted);
                                         },
-                                        text: 'Sign In',
+                                        text: 'Entrar',
                                         options: FFButtonOptions(
                                           width: 300.0,
                                           height: 55.0,

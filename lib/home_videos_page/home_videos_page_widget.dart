@@ -65,7 +65,7 @@ class _HomeVideosPageWidgetState extends State<HomeVideosPageWidget> {
                       width: double.infinity,
                       height: 105,
                       decoration: BoxDecoration(
-                        color: Colors.black,
+                        color: Color(0xFF191970),
                       ),
                     ),
                   ),
@@ -133,9 +133,7 @@ class _HomeVideosPageWidgetState extends State<HomeVideosPageWidget> {
                                                   .fromSTEB(0, 0, 5, 0),
                                               child: Icon(
                                                 Icons.person,
-                                                color:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryText,
+                                                color:Colors.white,
                                                 size: 24,
                                               ),
                                             ),

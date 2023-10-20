@@ -66,7 +66,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                       width: double.infinity,
                       height: 105.0,
                       decoration: BoxDecoration(
-                        color: Colors.black,
+                        color: Color(0xFF191970),
                       ),
                     ),
                   ),
@@ -138,8 +138,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                 ],
               ),
               Material(
-                color: Colors.transparent,
-                elevation: 0.0,
+                color: Colors.black,
                 child: Container(
                   width: MediaQuery.sizeOf(context).width * 1.0,
                   height: 400.0,
@@ -182,7 +181,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                     try {
                                       showUploadMessage(
                                         context,
-                                        'Uploading file...',
+                                        'Atualizando dados...',
                                         showLoading: true,
                                       );
                                       selectedUploadedFiles = selectedMedia
@@ -221,11 +220,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                         _model.uploadedFileUrl =
                                             downloadUrls.first;
                                       });
-                                      showUploadMessage(context, 'Success!');
+                                      showUploadMessage(context, 'Sucesso ao atualizar os dados de perfil!');
                                     } else {
                                       setState(() {});
                                       showUploadMessage(
-                                          context, 'Failed to upload data');
+                                          context, 'Erro ao tentar atualizar os seus dados.');
                                       return;
                                     }
                                   }
@@ -305,14 +304,15 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                     ),
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      labelText: 'Nome',
+                                      // labelText: 'Nome',
+                                      hintText: 'Nome',
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Readex Pro',
                                             color: Colors.white,
                                           ),
-                                      hintText: 'Nome',
+                                      // hintText: 'Nome',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium,
                                       enabledBorder: OutlineInputBorder(
@@ -380,7 +380,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                 controller: _model.textController2,
                                 obscureText: false,
                                 decoration: InputDecoration(
-                                  labelText: 'Email',
+                                  // labelText: 'Email',
                                   labelStyle:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                   hintText: 'Email',
@@ -444,7 +444,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                             ));
                             context.pop();
                           },
-                          text: 'Save Changes',
+                          text: 'Salvar Alterações',
                           options: FFButtonOptions(
                             width: 200.0,
                             height: 50.0,
