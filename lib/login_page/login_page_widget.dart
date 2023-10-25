@@ -92,12 +92,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
             width: constrains.maxWidth,
             decoration: BoxDecoration(
               color: Colors.black,
-              // image: DecorationImage(
-              //   fit: BoxFit.cover,
-              //   image: Image.asset(
-              //     'assets/images/Design_sem_nome.jpg',
-              //   ).image,
-              // ),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: Image.asset(
+                  'assets/images/background.png',
+                ).image,
+              ),
             ),
             // alignment: AlignmentDirectional(0.00, -1.00),
             child: Column(
@@ -137,11 +137,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                 maxWidth: 570.0,
                               ),
                               decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: Colors.black,
                                 boxShadow: [
                                   BoxShadow(
                                     blurRadius: 4.0,
-                                    color: Colors.white70,
+                                    color: Colors.black12,
                                     offset: Offset(0.0, 2.0),
                                   )
                                 ],
@@ -180,7 +180,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         .labelMedium
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
-                                          color: Colors.black,
+                                          color: Colors.white,
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
                                         ),
