@@ -3,16 +3,14 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:play_shorts/home_menu_page/home_menu_page.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
 
 import '../../auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'serialization_util.dart';
 
@@ -98,6 +96,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'HomeVideosPage',
           path: '/homeVideosPage',
           builder: (context, params) => HomeVideosPageWidget(),
+        ),
+        FFRoute(
+          name: 'HomeScreen',
+          path: '/homeScreen',
+          builder: (context, params) => HomeScreen(),
         ),
         FFRoute(
           name: 'ProfilePage',

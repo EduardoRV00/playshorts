@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import '../backend/backend.dart';
@@ -358,7 +359,11 @@ class MyDrawer extends StatelessWidget {
                     ListTile(
                       leading: Icon(Icons.exit_to_app, color: Colors.white,),
                       title: Text("Sair", style: TextStyle(color: Colors.white)),
-                      onTap: () {
+                      onTap: () async  {
+                       await FirebaseAuth.instance.signOut();
+                        context.pushReplacementNamed(
+                          'LoginPage',
+                        );
                       },
                     ),
                   ],

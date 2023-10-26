@@ -92,17 +92,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               0.0, 5.0, 0.0, 5.0),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              context.pushNamed(
-                                'HomeVideosPage',
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType:
-                                        PageTransitionType.rightToLeft,
-                                    duration: Duration(milliseconds: 500),
-                                  ),
-                                },
-                              );
+                              context.pop();
                             },
                             text: 'Voltar',
                             options: FFButtonOptions(

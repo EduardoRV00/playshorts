@@ -4,10 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'login_page_model.dart';
 export 'login_page_model.dart';
 
@@ -361,8 +358,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         return;
                                       }
 
-                                      context.goNamedAuth(
-                                          'HomeVideosPage', context.mounted);
+                                      context.goNamedAuth('HomeScreen', context.mounted);
                                     },
                                     text: 'Entrar',
                                     options: FFButtonOptions(
