@@ -53,15 +53,18 @@ class _HomeVideosPageWidgetState extends State<HomeVideosPageWidget> {
                     child: Row(
                       children: <Widget>[
                         Icon(Icons.person_outline, color: Colors.white),
-                        SizedBox(width: 8.0),
+                        SizedBox(width: 8),
                         Text(
                           'Olá, ${nomeUsersRecordList.first.displayName}',
                           style: TextStyle(
                             color: Colors.white,
+                            fontSize: MediaQuery.of(context).size.width >= 500 ? MediaQuery.of(context).size.width >= 1200 ? MediaQuery.of(context).size.width*.01 :
+                            MediaQuery.of(context).size.width*.02 : MediaQuery.of(context).size.width*.03,
                           ),
                         )
                       ],
-                    ),
+                    )
+
                   ),
                 );
               }
@@ -95,198 +98,211 @@ class _HomeVideosPageWidgetState extends State<HomeVideosPageWidget> {
                     }
                     List<VideosRecord> gridViewVideosRecordList =
                     snapshot.data!;
-                    return GridView.builder(
-                      padding: EdgeInsets.zero,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
-                        childAspectRatio: 1,
-                      ),
-                      scrollDirection: Axis.vertical,
-                      itemCount: gridViewVideosRecordList.length,
-                      itemBuilder: (context, gridViewIndex) {
-                        final gridViewVideosRecord =
-                        gridViewVideosRecordList[gridViewIndex];
+                    return LayoutBuilder(
+                      builder: (context, constraints) {
+                        int crossAxisCount;
+                        if (constraints.maxWidth >= 1200) {
+                          crossAxisCount = 3;
+                        } else if (constraints.maxWidth >= 800) {
+                          crossAxisCount = 2;
+                        } else {
+                          crossAxisCount = 1;
+                        }
+
                         return Padding(
-                          padding:
-                          EdgeInsetsDirectional.fromSTEB(16, 0, 16, 16),
-                          child: Container(
-                            width: double.infinity,
-                            height: 1,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 4,
-                                  color: Color(0x2B202529),
-                                  offset: Offset(0, 2),
-                                )
-                              ],
-                              borderRadius: BorderRadius.circular(8),
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: GridView.builder(
+                            padding: EdgeInsets.zero,
+                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: crossAxisCount,
+                              crossAxisSpacing: 10,
+                              mainAxisSpacing: 10,
+                              childAspectRatio: 1,
                             ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12, 12, 12, 12),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
+                            scrollDirection: Axis.vertical,
+                            itemCount: gridViewVideosRecordList.length,
+                            itemBuilder: (context, gridViewIndex) {
+                              final gridViewVideosRecord =
+                              gridViewVideosRecordList[gridViewIndex];
+                              return Container(
+                                width: double.infinity,
+                                height: 1,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 4,
+                                      color: Color(0x2B202529),
+                                      offset: Offset(0, 2),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12, 12, 12, 12),
+                                  child: Column(
                                     mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Container(
-                                        width: 100,
-                                        height: 140,
-                                        child: Stack(
-                                          children: [
-                                            ClipRRect(
-                                              borderRadius:
-                                              BorderRadius.circular(8),
-                                              child: Image.network(
-                                                gridViewVideosRecord
-                                                    .imagemThumbnail,
-                                                width: 100,
-                                                height: 259,
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  1.01, 1.05),
-                                              child: ClipRRect(
-                                                child: BackdropFilter(
-                                                  filter: ImageFilter.blur(
-                                                    sigmaX: 5,
-                                                    sigmaY: 2,
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Container(
+                                            width: 100,
+                                            height: 140,
+                                            child: Stack(
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                  BorderRadius.circular(8),
+                                                  child: Image.network(
+                                                    gridViewVideosRecord
+                                                        .imagemThumbnail,
+                                                    width: 100,
+                                                    height: 259,
+                                                    fit: BoxFit.cover,
                                                   ),
-                                                  child: Container(
-                                                    width: 50,
-                                                    height: 24,
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                      Color(0xBF0F1113),
-                                                      borderRadius:
-                                                      BorderRadius.only(
-                                                        bottomLeft:
-                                                        Radius.circular(
-                                                            0),
-                                                        bottomRight:
-                                                        Radius.circular(
-                                                            8),
-                                                        topLeft:
-                                                        Radius.circular(
-                                                            8),
-                                                        topRight:
-                                                        Radius.circular(
-                                                            0),
+                                                ),
+                                                Align(
+                                                  alignment: AlignmentDirectional(
+                                                      1.01, 1.05),
+                                                  child: ClipRRect(
+                                                    child: BackdropFilter(
+                                                      filter: ImageFilter.blur(
+                                                        sigmaX: 5,
+                                                        sigmaY: 2,
                                                       ),
-                                                    ),
-                                                    alignment:
-                                                    AlignmentDirectional(
-                                                        0.00, 0.00),
-                                                    child: Text(
-                                                      gridViewVideosRecord
-                                                          .duracao,
-                                                      style: FlutterFlowTheme
-                                                          .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                        fontFamily:
-                                                        'Readex Pro',
-                                                        color:
-                                                        Colors.white,
+                                                      child: Container(
+                                                        width: 50,
+                                                        height: 24,
+                                                        decoration: BoxDecoration(
+                                                          color:
+                                                          Color(0xBF0F1113),
+                                                          borderRadius:
+                                                          BorderRadius.only(
+                                                            bottomLeft:
+                                                            Radius.circular(
+                                                                0),
+                                                            bottomRight:
+                                                            Radius.circular(
+                                                                8),
+                                                            topLeft:
+                                                            Radius.circular(
+                                                                8),
+                                                            topRight:
+                                                            Radius.circular(
+                                                                0),
+                                                          ),
+                                                        ),
+                                                        alignment:
+                                                        AlignmentDirectional(
+                                                            0.00, 0.00),
+                                                        child: Text(
+                                                          gridViewVideosRecord
+                                                              .duracao,
+                                                          style: FlutterFlowTheme
+                                                              .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                            fontFamily:
+                                                            'Readex Pro',
+                                                            color:
+                                                            Colors.white,
+                                                          ),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
+                                              ],
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: Padding(
+                                              padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16, 0, 0, 0),
+                                              child: Text(
+                                                gridViewVideosRecord.titulo,
+                                                style:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLarge,
                                               ),
                                             ),
-                                          ],
+                                          ),
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0, 16, 0, 0),
+                                        child: Text(
+                                          gridViewVideosRecord.descricao,
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelMedium,
                                         ),
                                       ),
-                                      Expanded(
-                                        child: Padding(
-                                          padding:
+                                      Divider(
+                                        height: 24,
+                                        thickness: 2,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                      ),
+                                      FFButtonWidget(
+                                        onPressed: () async {
+                                          final Reference videoRef = FirebaseStorage.instance.refFromURL(gridViewVideosRecord.urlVideo);
+                                          final String fileName = videoRef.fullPath;
+                                          final storage = FirebaseStorage.instance.ref(fileName);
+
+                                          ///chamada do metodo para salvar arquivo
+                                          final data = await storage.getData(838860800);
+                                          print(data);
+                                          FileUtils.saveFile(data: data!, filename: 'video',);
+                                        },
+                                        text: 'Download',
+                                        icon: Icon(
+                                          Icons.cloud_download_rounded,
+                                          size: 15,
+                                        ),
+                                        options: FFButtonOptions(
+                                          width: 130,
+                                          height: 36,
+                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                              0, 0, 0, 0),
+                                          iconPadding:
                                           EdgeInsetsDirectional.fromSTEB(
-                                              16, 0, 0, 0),
-                                          child: Text(
-                                            gridViewVideosRecord.titulo,
-                                            style:
+                                              0, 0, 0, 0),
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent1,
+                                          textStyle: FlutterFlowTheme.of(context)
+                                              .titleSmall
+                                              .override(
+                                            fontFamily: 'Readex Pro',
+                                            color:
                                             FlutterFlowTheme.of(context)
-                                                .bodyLarge,
+                                                .primaryText,
+                                            fontSize: 14,
                                           ),
+                                          elevation: 0,
+                                          borderSide: BorderSide(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            width: 2,
+                                          ),
+                                          borderRadius: BorderRadius.circular(12),
                                         ),
                                       ),
                                     ],
                                   ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 16, 0, 0),
-                                    child: Text(
-                                      gridViewVideosRecord.descricao,
-                                      style: FlutterFlowTheme.of(context)
-                                          .labelMedium,
-                                    ),
-                                  ),
-                                  Divider(
-                                    height: 24,
-                                    thickness: 2,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                  ),
-                                  FFButtonWidget(
-                                    onPressed: () async {
-                                      final Reference videoRef = FirebaseStorage.instance.refFromURL(gridViewVideosRecord.urlVideo);
-                                      final String fileName = videoRef.fullPath;
-                                      final storage = FirebaseStorage.instance.ref(fileName);
-
-                                      ///chamada do metodo para salvar arquivo
-                                      final data = await storage.getData(838860800);
-                                      print(data);
-                                      FileUtils.saveFile(data: data!, filename: 'video',);
-                                    },
-                                    text: 'Download',
-                                    icon: Icon(
-                                      Icons.cloud_download_rounded,
-                                      size: 15,
-                                    ),
-                                    options: FFButtonOptions(
-                                      width: 130,
-                                      height: 36,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 0),
-                                      iconPadding:
-                                      EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 0),
-                                      color: FlutterFlowTheme.of(context)
-                                          .accent1,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                        fontFamily: 'Readex Pro',
-                                        color:
-                                        FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        fontSize: 14,
-                                      ),
-                                      elevation: 0,
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        width: 2,
-                                      ),
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                                ),
+                              );
+                            },
                           ),
                         );
                       },
                     );
+
                   },
                 ),
               ),
