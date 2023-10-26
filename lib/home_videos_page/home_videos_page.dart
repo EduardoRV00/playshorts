@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-
 import '../backend/backend.dart';
 import '../custom_code/actions/download_from_video_collection_firebase.dart';
 import '../flutter_flow/flutter_flow_theme.dart';

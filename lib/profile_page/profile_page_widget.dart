@@ -6,10 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'profile_page_model.dart';
 export 'profile_page_model.dart';
 
@@ -109,27 +106,47 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                             },
                             text: 'Voltar',
                             options: FFButtonOptions(
-                              width: 144.0,
-                              height: 40.0,
+                              width: MediaQuery.of(context).size.width < 800
+                                  ? 100.0
+                                  : MediaQuery.of(context).size.width < 1200
+                                  ? 120.0
+                                  : 144.0,
+                              height: MediaQuery.of(context).size.width < 800
+                                  ? 30.0
+                                  : MediaQuery.of(context).size.width < 1200
+                                  ? 36.0
+                                  : 40.0,
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
+                                16.0,
+                                0.0,
+                                16.0,
+                                0.0,
+                              ),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                               color: Color(0xFFEEB500),
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .override(
-                                    fontFamily: 'Readex Pro',
-                                    color: Colors.white,
-                                    fontSize: 18.0,
-                                  ),
+                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Readex Pro',
+                                color: Colors.white,
+                                fontSize: MediaQuery.of(context).size.width < 800
+                                    ? 16.0
+                                    : MediaQuery.of(context).size.width < 1200
+                                    ? 18.0
+                                    : 20.0,
+                              ),
                               elevation: 1.0,
                               borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
-                              borderRadius: BorderRadius.circular(30.0),
+                              borderRadius: BorderRadius.circular(
+                                MediaQuery.of(context).size.width < 800
+                                    ? 24.0
+                                    : MediaQuery.of(context).size.width < 1200
+                                    ? 28.0
+                                    : 30.0,
+                              ),
                             ),
+
                           ),
                         ),
                       ],
