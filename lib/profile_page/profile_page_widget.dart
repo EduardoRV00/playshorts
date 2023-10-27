@@ -1,3 +1,4 @@
+import '../home_menu_page/conts/strings.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
@@ -63,7 +64,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                       width: double.infinity,
                       height: 105.0,
                       decoration: BoxDecoration(
-                        color: Color(0xFF191970),
+                        color: Colors.black,
                       ),
                     ),
                   ),
@@ -80,63 +81,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
-                              'assets/images/Logo_Play_Shorts_(1).png',
+                              logoImage,
                               width: 200.0,
                               height: 80.0,
                               fit: BoxFit.cover,
                             ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 5.0, 0.0, 5.0),
-                          child: FFButtonWidget(
-                            onPressed: () async {
-                              context.pop();
-                            },
-                            text: 'Voltar',
-                            options: FFButtonOptions(
-                              width: MediaQuery.of(context).size.width < 800
-                                  ? 100.0
-                                  : MediaQuery.of(context).size.width < 1200
-                                  ? 120.0
-                                  : 144.0,
-                              height: MediaQuery.of(context).size.width < 800
-                                  ? 30.0
-                                  : MediaQuery.of(context).size.width < 1200
-                                  ? 36.0
-                                  : 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0,
-                                0.0,
-                                16.0,
-                                0.0,
-                              ),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                              color: Color(0xFFEEB500),
-                              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Readex Pro',
-                                color: Colors.white,
-                                fontSize: MediaQuery.of(context).size.width < 800
-                                    ? 16.0
-                                    : MediaQuery.of(context).size.width < 1200
-                                    ? 18.0
-                                    : 20.0,
-                              ),
-                              elevation: 1.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(
-                                MediaQuery.of(context).size.width < 800
-                                    ? 24.0
-                                    : MediaQuery.of(context).size.width < 1200
-                                    ? 28.0
-                                    : 30.0,
-                              ),
-                            ),
-
                           ),
                         ),
                       ],
@@ -145,7 +94,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                 ],
               ),
               Material(
-                color: Colors.black,
                 child: Container(
                   width: MediaQuery.sizeOf(context).width * 1.0,
                   height: 400.0,
@@ -355,7 +303,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                             BorderRadius.circular(30.0),
                                       ),
                                       filled: true,
-                                      fillColor: Color(0xFF191970),
+                                      fillColor: Colors.black87,
                                       contentPadding:
                                           EdgeInsetsDirectional.fromSTEB(
                                               16.0, 24.0, 16.0, 24.0),
@@ -422,7 +370,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                     borderRadius: BorderRadius.circular(30.0),
                                   ),
                                   filled: true,
-                                  fillColor: Color(0xFF191970),
+                                  fillColor: Colors.black87,
                                   contentPadding:
                                       EdgeInsetsDirectional.fromSTEB(
                                           16.0, 24.0, 16.0, 24.0),
@@ -459,7 +407,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                                 0.0, 0.0, 0.0, 0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: Color(0xFFEEB500),
+                            color: Colors.black,
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -476,6 +424,39 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                           ),
                         ),
                       ),
+                      Padding(
+                        padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            context.pop();
+                          },
+                          text: 'Voltar',
+                          options: FFButtonOptions(
+                            width: 200.0,
+                            height: 50.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: Colors.black,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                              fontFamily: 'Readex Pro',
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            elevation: 3.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(40.0),
+                          ),
+                        ),
+                      ),
+
                     ],
                   ),
                 ),
