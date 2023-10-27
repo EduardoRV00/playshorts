@@ -339,6 +339,23 @@ class MyDrawer extends StatelessWidget {
                               title: Text("HOME", style: TextStyle(color: Colors.white),),
                               onTap: () {
                                 context.pushReplacementNamed(
+                                  'HomeScreen',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType:
+                                      PageTransitionType.rightToLeft,
+                                      duration: Duration(milliseconds: 500),
+                                    ),
+                                  },
+                                );
+                              },
+                            ),
+                            ListTile(
+                              leading: Icon(Icons.play_arrow, color: Colors.white,),
+                              title: Text("Vídeos", style: TextStyle(color: Colors.white)),
+                              onTap: () {
+                                context.pushReplacementNamed(
                                   'HomeVideosPage',
                                   extra: <String, dynamic>{
                                     kTransitionInfoKey: TransitionInfo(

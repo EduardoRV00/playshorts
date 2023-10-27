@@ -66,16 +66,37 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             CardWidget(
+              onTap: (){
+                context.pushReplacementNamed(
+                  'HomeVideosPage',
+                  extra: <String, dynamic>{
+                    kTransitionInfoKey: TransitionInfo(
+                      hasTransition: true,
+                      transitionType:
+                      PageTransitionType.rightToLeft,
+                      duration: Duration(milliseconds: 500),
+                    ),
+                  },
+                );
+
+              },
                 backgroundImage: 'assets/cards/card1.png',
-                //title: 'Vídeos prontos para lucrar'
+
             ),
             CardWidget(
+              onTap: (){
+
+              },
               backgroundImage: 'assets/cards/card2.png',
-             // title: 'Gerador de vídeos por IA',
+
             ),
             CardWidget(
+              onTap: (){
+
+              },
               backgroundImage: 'assets/cards/card3.png',
-              //title: 'Gerador de ideias po IA',
+
+
             ),
           ],
         ),
@@ -85,40 +106,41 @@ class HomeScreen extends StatelessWidget {
 }
 
 class CardWidget extends StatelessWidget {
-  //final String title;
-  // final double width;
-  // final double height;
+  final Function() onTap;
   final String backgroundImage;
 
-  CardWidget({required this.backgroundImage});
+  CardWidget({required this.backgroundImage,required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.3,
-      height: MediaQuery.of(context).size.height * 0.6,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(backgroundImage),
-          fit: BoxFit.cover,
-          colorFilter: ColorFilter.mode(
-            Colors.white.withOpacity(1.0),
-            BlendMode.dstATop,
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.3,
+        height: MediaQuery.of(context).size.height * 0.6,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(backgroundImage),
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+              Colors.white.withOpacity(1.0),
+              BlendMode.dstATop,
+            ),
           ),
+          borderRadius: BorderRadius.circular(16.0),
         ),
-        borderRadius: BorderRadius.circular(16.0),
+        // child: Center(
+        //   child: Text(
+        //     title,
+        //     style: TextStyle(
+        //       color: Colors.white,
+        //       fontSize: 18.0,
+        //       fontWeight: FontWeight.bold,
+        //     ),
+        //     textAlign: TextAlign.center,
+        //   ),
+        // ),
       ),
-      // child: Center(
-      //   child: Text(
-      //     title,
-      //     style: TextStyle(
-      //       color: Colors.white,
-      //       fontSize: 18.0,
-      //       fontWeight: FontWeight.bold,
-      //     ),
-      //     textAlign: TextAlign.center,
-      //   ),
-      // ),
     );
   }
 }
@@ -148,6 +170,23 @@ class MyDrawer extends StatelessWidget {
                             ListTile(
                               leading: Icon(Icons.home, color: Colors.white,),
                               title: Text("HOME", style: TextStyle(color: Colors.white),),
+                              onTap: () {
+                                context.pushReplacementNamed(
+                                  'HomeVideosPage',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType:
+                                      PageTransitionType.rightToLeft,
+                                      duration: Duration(milliseconds: 500),
+                                    ),
+                                  },
+                                );
+                              },
+                            ),
+                            ListTile(
+                              leading: Icon(Icons.play_arrow, color: Colors.white,),
+                              title: Text("Vídeos", style: TextStyle(color: Colors.white)),
                               onTap: () {
                                 context.pushReplacementNamed(
                                   'HomeVideosPage',
