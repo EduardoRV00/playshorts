@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -315,6 +314,15 @@ class _HomeVideosPageWidgetState extends State<HomeVideosPageWidget> {
 }
 
 class MyDrawer extends StatelessWidget {
+  void _launchChatGPT() async {
+    const url = 'https://chat.openai.com';
+    if (await launchURL(url)) {
+      await url;
+    } else {
+      throw 'Não foi possível abrir a URL: $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -378,6 +386,7 @@ class MyDrawer extends StatelessWidget {
                               leading: Icon(Icons.movie, color: Colors.white,),
                               title: Text("Gerar Vídeos com IA", style: TextStyle(color: Colors.white)),
                               onTap: () {
+                                _launchChatGPT();
                               },
                             ),
                           ],

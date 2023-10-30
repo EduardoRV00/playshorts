@@ -1,11 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'conts/strings.dart';
 
 class HomeScreen extends StatelessWidget {
+  void _launchChatGPT() async {
+    const url = 'https://chat.openai.com';
+    if (await launchURL(url)) {
+      await url;
+    } else {
+      throw 'Não foi possível abrir a URL: $url';
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,7 +100,9 @@ class HomeScreen extends StatelessWidget {
                           backgroundImage: 'assets/cards/card1.png',
                         ),
                         CardWidget(
-                          onTap: () {},
+                          onTap: () {
+                            _launchChatGPT();
+                          },
                           backgroundImage: 'assets/cards/card2.png',
                         ),
                         CardWidget(
@@ -161,7 +170,6 @@ class CardWidget extends StatelessWidget {
   final bool isMobile;
 
   CardWidget({required this.backgroundImage, required this.onTap, this.isMobile=false});
-
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -186,6 +194,15 @@ class CardWidget extends StatelessWidget {
 }
 
 class MyDrawer extends StatelessWidget {
+  void _launchChatGPT() async {
+    const url = 'https://chat.openai.com';
+    if (await launchURL(url)) {
+      await url;
+    } else {
+      throw 'Não foi possível abrir a URL: $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -219,7 +236,7 @@ class MyDrawer extends StatelessWidget {
                           ),
                           onTap: () {
                             context.pushReplacementNamed(
-                              'HomeVideosPage',
+                              'HomeScreen',
                               extra: <String, dynamic>{
                                 kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
@@ -268,7 +285,11 @@ class MyDrawer extends StatelessWidget {
                           ),
                           title: Text("Gerar Vídeos com IA",
                               style: TextStyle(color: Colors.white)),
-                          onTap: () {},
+                          onTap: () {
+                            _launchChatGPT();
+
+
+                          },
                         ),
                       ],
                     ),
