@@ -23,6 +23,7 @@ void main() async {
         messagingSenderId: "216472393939",
         appId: "1:216472393939:web:e29c905f7992ebc32f1c26",
         measurementId: "G-MZS3E9V34R"),
+
   );
   usePathUrlStrategy();
   await initFirebase();
