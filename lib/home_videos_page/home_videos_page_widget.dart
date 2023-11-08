@@ -1,8 +1,6 @@
 import 'dart:html';
-
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:play_shorts/custom_code/actions/download_from_video_collection_firebase.dart';
-
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -14,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
 import 'home_videos_page_model.dart';
 export 'home_videos_page_model.dart';
 
