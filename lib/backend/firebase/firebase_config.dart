@@ -5,12 +5,15 @@ Future initFirebase() async {
   if (kIsWeb) {
     await Firebase.initializeApp(
         options: FirebaseOptions(
-            apiKey: "AIzaSyBWxM3WyVybCQmXJn6zhlczNMFfeeCg3QU",
-            authDomain: "playshorts-89ba1.firebaseapp.com",
-            projectId: "playshorts-89ba1",
-            storageBucket: "playshorts-89ba1.appspot.com",
-            messagingSenderId: "834593427372",
-            appId: "1:834593427372:web:714b30eb268a3029953409"));
+          apiKey: "AIzaSyAVluBdJUqCOEbW5NJ4_AjdPITibctzmNs",
+          authDomain: "play-shorts-3026d.firebaseapp.com",
+          databaseURL: "https://play-shorts-3026d-default-rtdb.firebaseio.com",
+          projectId: "play-shorts-3026d",
+          storageBucket: "play-shorts-3026d.appspot.com",
+          messagingSenderId: "216472393939",
+          appId: "1:216472393939:web:e29c905f7992ebc32f1c26",
+
+        ));
   } else {
     await Firebase.initializeApp();
   }
