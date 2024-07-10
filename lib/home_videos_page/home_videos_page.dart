@@ -1,7 +1,9 @@
+import 'dart:io';
 import 'dart:ui';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ffmpeg/flutter_ffmpeg.dart';
 import '../backend/backend.dart';
 import '../custom_code/actions/download_from_video_collection_firebase.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -254,12 +256,22 @@ class _HomeVideosPageWidgetState extends State<HomeVideosPageWidget> {
                                           final String fileName = videoRef.fullPath;
                                           final storage = FirebaseStorage.instance.ref(fileName);
 
-                                          ///chamada do metodo para salvar arquivo
-                                          final data = await storage.getData(838860800);
-                                          print(data);
-                                          FileUtils.saveFile(data: data!, filename: 'video',);
+                                          if(Platform.isAndroid || Platform.isIOS){
+                                            // downloadAndCompressVideo("$videoRef");
+                                            AlertDialog(title: Text(Platform.localeName +"==="+Platform.localHostname));
+                                            Navigator.pop(context);
+    
+                                          } else {
+
+                                            // ///chamada do metodo para salvar arquivo
+                                            // final data = await storage.getData(
+                                            //     838860800);
+                                            // print(data);
+                                            // FileUtils.saveFile(
+                                            //   data: data!, filename: 'video',);
+                                          }
                                         },
-                                        text: 'Download',
+                                        text: 'AvA',
                                         icon: Icon(
                                           Icons.cloud_download_rounded,
                                           size: 15,
@@ -310,6 +322,25 @@ class _HomeVideosPageWidgetState extends State<HomeVideosPageWidget> {
         ),
       ),
     );
+  }
+  Future<void> downloadAndCompressVideo(String videoUrl) async {
+    final flutterFFmpeg = FlutterFFmpeg();
+
+    // Define the output file path
+    final outputPath = 'path_to_save_compressed_video.mp4';
+
+    // Run FFmpeg command to compress the video
+    final result = await flutterFFmpeg.execute(
+      '-i $videoUrl -c:v libx264 -crf 24 -preset medium -c:a aac -strict experimental $outputPath',
+    );
+
+    if (result == 0) {
+      // Video compression successful
+      print('Video compressed and saved to $outputPath');
+    } else {
+      // Video compression failed
+      print('Video compression failed');
+    }
   }
 }
 

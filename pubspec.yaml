@@ -92,6 +92,7 @@ dependencies:
   video_player_platform_interface: 6.1.0
   video_player_web: 2.0.15
   flutter_file_downloader: ^1.1.4
+  flutter_ffmpeg:
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -103,6 +104,7 @@ dev_dependencies:
 
   flutter_test:
     sdk: flutter
+  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

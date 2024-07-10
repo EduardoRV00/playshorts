@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "playshorts-89ba1"
-  }
+    "default": "play-shorts-3026d",
+    "staging": "play-shorts-3026d"
+  },
+  "targets": {},
+  "etags": {}
 }
